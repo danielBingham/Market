@@ -20,9 +20,15 @@ class CategoriesDisplayService extends DisplayService {
 		if (empty ($filters)) {
 			$filters = $this->parseFilter();
 		}
-		
-		$paged_view = $this->getPage('Category', 'categories/item', 8, $filters);
-		$this->factory->getView()->layout($paged_view);
+	
+		$pager = new PagingService('Category', 'categories/item');
+		$pager->number_per_page = 8;	
+
+		foreach($filters as $filter=>$parameters) {
+			$pager->filter($filter,$parameters);
+		}		
+
+		return $pager->getPage();
 	}
 
 	/**
@@ -34,8 +40,8 @@ class CategoriesDisplayService extends DisplayService {
 			$id = $this->factory->getRequest()->get('id');	
 		}
 
-		$productDisplay = new ProductDisplayService($this->factory);
-		$productDisplay->page(array('category = :id' => array('id' => $id)));
+		$product_display = new ProductDisplayService($this->factory);
+		$product_page_view = $product_display->page(array('category = :id' => array('id' => $id)));
 	}
 
 }

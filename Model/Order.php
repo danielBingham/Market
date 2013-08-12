@@ -55,7 +55,7 @@ class Order extends Identified {
 	 *
 	 * @type	DateTime
 	 */
-	protected $datePlaced = null;
+	protected $date_placed = null;
 	
 	/**
 	 * User who placed this order.
@@ -94,15 +94,15 @@ class Order extends Identified {
 	
 	public function getDatePlaced()
 	{	
-		return $this->datePlaced;
+		return $this->date_placed;
 	}
 
 	/**
 	 *
 	 */
-	public function setDatePlaced(DateTime $datePlaced)
+	public function setDatePlaced(DateTime $date_placed)
 	{
-		$this->datePlaced = $datePlaced;
+		$this->date_placed = $date_placed;
 		return $this;
 	}
 
