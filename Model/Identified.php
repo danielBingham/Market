@@ -2,8 +2,8 @@
 namespace danielBingham\Ecommerce\Model;
 
 /**
- * Many Model Entity need to be uniquely ided in some way.  To do this
- * we have them extend Identified, we assigns them an integer ID.
+ * Many Model Entities need to be uniquely identified in some way.  To do this
+ * we have them extend Identified which assigns them an integer ID.
  */
 class Identified {
 	
